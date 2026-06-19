@@ -29,9 +29,14 @@ jobs:
       - name: 📦 Clean and Install Dependencies
         run: |
           rm -rf node_modules package-lock.json
-          npm install --legacy-peer-deps
-          npm install expo@54.0.35 # Aapke SDK version ke hisab se exact expo install karega
-
+          # Pehle package.json se agar koi galat version lock hai to use sahi karenge
+          npm install expo@54.0.35 --legacy-peer-deps
+          
+          # Expo ko bolenge ki wo dependencies ko sahi (deduplicate) kare
+          npx expo install --fix
+          
+          # Forcefully galat expo-font ko hatakar sahi version lock karenge
+          npm install expo-font@14.0.12 --save-exact --legacy-peer-deps
       - name: 🩺 Run Expo Doctor
         run: npx expo-doctor
 
