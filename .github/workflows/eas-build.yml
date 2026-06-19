@@ -3,7 +3,7 @@ name: Expo EAS APK Build
 on:
   push:
     branches:
-      - main # Ya jo bhi aapki default branch ka naam ho
+      - main # Ya jo aapki branch ka naam ho
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: 20
+          node-version: 20
           cache: 'npm'
 
       - name: 🛠 Setup Expo and EAS
@@ -26,10 +26,11 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Clean and Install Dependencies
         run: |
           rm -rf node_modules package-lock.json
-          npm install
+          npm install --legacy-peer-deps
+          npm install expo@54.0.35 # Aapke SDK version ke hisab se exact expo install karega
 
       - name: 🩺 Run Expo Doctor
         run: npx expo-doctor
