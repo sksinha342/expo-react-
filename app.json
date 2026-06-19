@@ -1,26 +1,21 @@
 {
   "expo": {
     "name": "joyous-blue-waffle",
-    "slug": "sujit",
+    "slug": "joyous-blue-waffle",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
+    "owner": "sks342s-team",
     "android": {
+      "package": "com.sksinha.joyousbluewaffle",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
+    },
+    "ios": {
+      "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -29,7 +24,6 @@
       "eas": {
         "projectId": "9ce73872-1d84-4147-bd12-86f23a79054f"
       }
-    },
-    "owner": "sks342s-team"
+    }
   }
 }
