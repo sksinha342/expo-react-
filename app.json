@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "joyous-blue-waffle",
-    "slug": "snack-59f244e7-dc44-4eb2-ad6b-ccebda8a33bb",
+    "slug": "sujit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +24,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9ce73872-1d84-4147-bd12-86f23a79054f"
+      }
+    },
+    "owner": "sks342s-team"
   }
 }
