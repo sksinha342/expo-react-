@@ -1,0 +1,38 @@
+name: Expo EAS APK Build
+
+on:
+  push:
+    branches:
+      - main # Ya jo bhi aapki default branch ka naam ho
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+          cache: 'npm'
+
+      - name: 🛠 Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📦 Install Dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+
+      - name: 🩺 Run Expo Doctor
+        run: npx expo-doctor
+
+      - name: 🚀 Build Android Preview APK
+        run: eas build --platform android --profile preview --non-interactive
